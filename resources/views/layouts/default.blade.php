@@ -8,10 +8,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.ico">
 
-    <title>Zircos - Responsive Admin Dashboard Template</title>
-
-    <!--Morris Chart CSS -->
-    <link rel="stylesheet" href="/plugins/morris/morris.css">
+    <title>Microbiota Control system</title>
 
     @include('layouts.styles')
     @yield('css')

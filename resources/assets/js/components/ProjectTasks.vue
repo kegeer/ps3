@@ -3,16 +3,16 @@
     <div class="col-sm-12">
         <div class="card-box">
             <div class="demo-box">
-                <h4 class="m-t-0 header-title"><b>All tasks</b></h4>
+                <h4 class="m-t-0 header-title"><b>此项目下所有任务</b></h4>
                 <p class="text-muted font-13 m-b-20">
-                    See all tasks and add tasks <code>.table</code> to any <code>&lt;table&gt;</code>.
+                    在此可以添加可修改任务
                 </p>
                 <div class="m-b-30">
-                    <button @click="showCreateTaskForm" class="btn btn-success waves-effect waves-light">Add <i class="mdi mdi-plus-circle-outline"></i></button>
+                    <button @click="showCreateTaskForm" class="btn btn-success waves-effect waves-light">添加任务 <i class="mdi mdi-plus-circle-outline"></i></button>
                 </div>
 
                 <p class="m-b-30" v-if="tasks.length === 0">
-                    You have not created any tasks.
+                    目前还没有创建任何任务
                 </p>
 
                 <table class="table m-0" v-if="tasks.length > 0">
@@ -20,10 +20,10 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th>Roadmap</th>
+                            <th>名称</th>
+                            <th>开始时间</th>
+                            <th>结束时间</th>
+                            <th>结束路线</th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -38,14 +38,14 @@
                             <td style="vertical-align: middle;">{{ task.roadmap_id }}</td>
                             <td style="vertical-align: middle;">
                                 <a class="action-link" @click="edit(task)">
-                                    Edit
+                                    编辑
                                 </a>
                             </td>
 
                             <!-- Delete Button -->
                             <td style="vertical-align: middle;">
                                 <a class="action-link text-danger" @click="destroy(task)">
-                                    Delete
+                                    删除
                                 </a>
                             </td>
                         </tr>
@@ -63,14 +63,14 @@
                     <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                     <h4 class="modal-title">
-                            Create task
+                            创建任务
                         </h4>
                 </div>
 
                 <div class="modal-body">
                     <!-- Form Errors -->
                     <div class="alert alert-danger" v-if="createForm.errors.length > 0">
-                        <p><strong>Whoops!</strong> Something went wrong!</p>
+                        <p><strong>糟糕！出问题了！</strong> 大多数是由于网络原因，请联系技术人员帮助解决！</p>
                         <br>
                         <ul>
                             <li v-for="error in createForm.errors">
@@ -84,14 +84,14 @@
                         <div class="row">
                         <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name" class="control-label">Name</label>
+                                    <label for="name" class="control-label">名称</label>
                                     <input type="text" id="name" v-model="createForm.name" class="form-control">
                                 </div>
                             </div>
                             
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="roadmap_id" class="control-label">Roadmap</label>
+                                    <label for="roadmap_id" class="control-label">技术路线</label>
                                     <select v-model="createForm.roadmap_id" id="roadmap_id" class="form-control">
                                           <option value="1">poop</option>
                                           <option value="2">blood</option>
@@ -103,13 +103,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="start" class="control-label">start</label>
+                                    <label for="start" class="control-label">开始时间</label>
                                     <input type="date" id="start" v-model="createForm.start" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="end" class="control-label">end</label>
+                                    <label for="end" class="control-label">结束时间</label>
                                     <input type="date" id="end" v-model="createForm.end" class="form-control">
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exp_manager" class="control-label">Manager</label>
+                                    <label for="exp_manager" class="control-label">实验负责人</label>
                                     <select v-model="createForm.exp_manager" id="exp_manager" class="form-control">
                                           <option value="1">poop</option>
                                           <option value="2">blood</option>
@@ -127,7 +127,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="info_manager" class="control-label">Manager</label>
+                                    <label for="info_manager" class="control-label">信息负责人</label>
                                     <select v-model="createForm.info_manager" id="info_manager" class="form-control">
                                           <option value="1">poop</option>
                                           <option value="2">blood</option>
@@ -136,16 +136,43 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                            <h4 class="m-t-0 header-title"><b>选择批次</b></h4>
+                                <table>
+                                    <thead class="table m-b-30">
+                                        <tr>
+                                            <th>选择</th>
+                                            <th>原始批次号</th>
+                                            <th>谱元编号</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="batch in batches">
+                                            <td>
+                                                <input type="checkbox" v-model="">
+                                            </td>
+                                            <td>
+                                                {{ batch.ori_num }}
+                                            </td>
+                                            <td>
+                                                {{ batch.py_num }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
                     </form>
                 </div>
 
                 <!-- Modal Actions -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
                     <button type="button" class="btn btn-primary" @click="store">
-                            Create
+                            创建
                         </button>
                 </div>
             </div>
@@ -158,14 +185,14 @@
                     <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                     <h4 class="modal-title">
-                            Edit task
+                            修改任务信息
                         </h4>
                 </div>
 
                 <div class="modal-body">
                     <!-- Form Errors -->
                     <div class="alert alert-danger" v-if="editForm.errors.length > 0">
-                        <p><strong>Whoops!</strong> Something went wrong!</p>
+                        <p><strong>糟糕！出问题了！</strong> 大多数是由于网络原因，请联系技术人员帮助解决！</p>
                         <br>
                         <ul>
                             <li v-for="error in editForm.errors">
@@ -179,13 +206,13 @@
                         <div class="row">
                         <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name" class="control-label">Name</label>
+                                    <label for="name" class="control-label">名称</label>
                                     <input type="text" id="name" v-model="editForm.name" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="roadmap_id" class="control-label">Roadmap</label>
+                                    <label for="roadmap_id" class="control-label">技术路线</label>
                                     <select v-model="editForm.roadmap_id" id="roadmap_id" class="form-control">
                                           <option value="1">poop</option>
                                           <option value="2">blood</option>
@@ -197,13 +224,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="start" class="control-label">start</label>
+                                    <label for="start" class="control-label">开始时间</label>
                                     <input type="date" id="start" v-model="editForm.start" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="end" class="control-label">end</label>
+                                    <label for="end" class="control-label">结束时间</label>
                                     <input type="date" id="end" v-model="editForm.end" class="form-control">
                                 </div>
                             </div>
@@ -211,7 +238,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exp_manager" class="control-label">Manager</label>
+                                    <label for="exp_manager" class="control-label">实验负责人</label>
                                     <select v-model="editForm.exp_manager" id="exp_manager" class="form-control">
                                           <option value="1">poop</option>
                                           <option value="2">blood</option>
@@ -221,7 +248,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="info_manager" class="control-label">Manager</label>
+                                    <label for="info_manager" class="control-label">信息负责人</label>
                                     <select v-model="editForm.info_manager" id="info_manager" class="form-control">
                                           <option value="1">poop</option>
                                           <option value="2">blood</option>
@@ -236,10 +263,10 @@
 
                 <!-- Modal Actions -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
                     <button type="button" class="btn btn-primary" @click="update">
-                            Update
+                            更新
                     </button>
                 </div>
             </div>
@@ -256,6 +283,7 @@ export default {
     data() {
         return {
             tasks: {},
+            batches: [],
             createForm: {
                 errors: [],
                 project_id: this.project,

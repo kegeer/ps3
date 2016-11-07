@@ -3,16 +3,16 @@
     <div class="col-sm-12">
         <div class="card-box">
             <div class="demo-box">
-                <h4 class="m-t-0 header-title"><b>All Projects</b></h4>
+                <h4 class="m-t-0 header-title"><b>项目信息</b></h4>
                 <p class="text-muted font-13 m-b-20">
-                    See all projects and add projects <code>.table</code> to any <code>&lt;table&gt;</code>.
+                    此页面管理公司项目信息，项目分配和建立，并能匹配的管理下游任务信息。
                 </p>
                 <div class="m-b-30">
-                    <button @click="showCreateProjectForm" class="btn btn-success waves-effect waves-light">Add <i class="mdi mdi-plus-circle-outline"></i></button>
+                    <button @click="showCreateProjectForm" class="btn btn-success waves-effect waves-light">新建项目 <i class="mdi mdi-plus-circle-outline"></i></button>
                 </div>
 
                 <p class="m-b-30" v-if="projects.length === 0">
-                    You have not created any projects.
+                    目前还未建立任何项目信息！
                 </p>
 
                 <table class="table m-0" v-if="projects.length > 0">
@@ -20,10 +20,10 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th>Manager</th>
+                            <th>名称</th>
+                            <th>开始时间</th>
+                            <th>结束时间</th>
+                            <th>项目负责人</th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -38,18 +38,18 @@
                             <td style="vertical-align: middle;">{{ project.manager_user_id }}</td>
                             <td style="vertical-align: middle;">
                                 <a class="action-link" @click="edit(project)">
-                                    Edit
+                                    编辑此项目
                                 </a>
                             </td>
 
                             <!-- Delete Button -->
                             <td style="vertical-align: middle;">
                                 <a class="action-link text-danger" @click="destroy(project)">
-                                    Delete
+                                    删除
                                 </a>
                             </td>
                             <td>
-                                <a :href="allTasks(project)" class="action-link">All Tasks</a>
+                                <a :href="allTasks(project)" class="action-link">所有关联任务</a>
                             </td>
                         </tr>
                     </tbody>
@@ -66,14 +66,14 @@
                     <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                     <h4 class="modal-title">
-                            Create project
+                            创建项目
                         </h4>
                 </div>
 
                 <div class="modal-body">
                     <!-- Form Errors -->
                     <div class="alert alert-danger" v-if="createForm.errors.length > 0">
-                        <p><strong>Whoops!</strong> Something went wrong!</p>
+                        <p><strong>糟糕！出问题了！</strong> 大多数是由于网络原因，请联系技术人员帮助解决！</p>
                         <br>
                         <ul>
                             <li v-for="error in createForm.errors">
@@ -87,13 +87,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name" class="control-label">Name</label>
+                                    <label for="name" class="control-label">名称</label>
                                     <input type="text" id="name" v-model="createForm.name" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="manager_user_id" class="control-label">Manager</label>
+                                    <label for="manager_user_id" class="control-label">负责人</label>
                                     <select v-model="createForm.manager_user_id" id="manager_user_id" class="form-control">
                                           <option value="1">poop</option>
                                           <option value="2">blood</option>
@@ -105,13 +105,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="start" class="control-label">Start Date</label>
+                                    <label for="start" class="control-label">开始时间</label>
                                     <input type="date" id="start" v-model="createForm.start" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="end" class="control-label">End Date</label>
+                                    <label for="end" class="control-label">结束时间</label>
                                     <input type="date" id="end" v-model="createForm.end" class="form-control">
                                 </div>
                             </div>
@@ -122,10 +122,10 @@
 
                 <!-- Modal Actions -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
                     <button type="button" class="btn btn-primary" @click="store">
-                            Create
+                            创建
                         </button>
                 </div>
             </div>
@@ -138,14 +138,14 @@
                     <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                     <h4 class="modal-title">
-                            Edit Project
+                            编辑此项目
                         </h4>
                 </div>
 
                 <div class="modal-body">
                     <!-- Form Errors -->
                     <div class="alert alert-danger" v-if="editForm.errors.length > 0">
-                        <p><strong>Whoops!</strong> Something went wrong!</p>
+                       <p><strong>糟糕！出问题了！</strong> 大多数是由于网络原因，请联系技术人员帮助解决！</p>
                         <br>
                         <ul>
                             <li v-for="error in editForm.errors">
@@ -159,13 +159,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name" class="control-label">Name</label>
+                                    <label for="name" class="control-label">名称</label>
                                     <input type="text" id="name" v-model="editForm.name" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="manager_user_id" class="control-label">Manager</label>
+                                    <label for="manager_user_id" class="control-label">项目负责人</label>
                                     <select v-model="editForm.manager_user_id" id="manager_user_id" class="form-control">
                                           <option value="1">poop</option>
                                           <option value="2">blood</option>
@@ -177,13 +177,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="start" class="control-label">Start Date</label>
+                                    <label for="start" class="control-label">开始时间</label>
                                     <input type="date" id="start" v-model="editForm.start" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="end" class="control-label">End Date</label>
+                                    <label for="end" class="control-label">结束时间</label>
                                     <input type="date" id="end" v-model="editForm.end" class="form-control">
                                 </div>
                             </div>
@@ -194,10 +194,10 @@
 
                 <!-- Modal Actions -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
                     <button type="button" class="btn btn-primary" @click="update">
-                            Update
+                            更新
                     </button>
                 </div>
             </div>

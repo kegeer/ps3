@@ -3,16 +3,16 @@
     <div class="col-sm-12">
         <div class="card-box">
             <div class="demo-box">
-                <h4 class="m-t-0 header-title"><b>All roadmaps</b></h4>
+                <h4 class="m-t-0 header-title"><b>所有技术路线</b></h4>
                 <p class="text-muted font-13 m-b-20">
-                    See all roadmaps and add roadmaps <code>.table</code> to any <code>&lt;table&gt;</code>.
+                    技术路线有相应的流程和实验方法组成，在此创建的技术路线可以公开访问到。
                 </p>
                 <div class="m-b-30">
-                    <button @click="showCreateRoadmapForm" class="btn btn-success waves-effect waves-light">Add new roadmap<i class="mdi mdi-plus-circle-outline"></i></button>
+                    <button @click="showCreateRoadmapForm" class="btn btn-success waves-effect waves-light">创建新的技术路线<i class="mdi mdi-plus-circle-outline"></i></button>
                 </div>
 
                 <p class="m-b-30" v-if="roadmaps.length === 0">
-                    You have not created any roadmaps.
+                    目前没有任何创建好的技术路线。
                 </p>
 
                 <table class="table m-0" v-if="roadmaps.length > 0">
@@ -20,8 +20,8 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Description</th>
+                            <th>名称</th>
+                            <th>描述</th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -34,18 +34,18 @@
                             <td style="vertical-align: middle;">{{ roadmap.description }}</td>
                             <td style="vertical-align: middle;">
                                 <a class="action-link" @click="edit(roadmap)">
-                                    Edit
+                                    修改
                                 </a>
                             </td>
 
                             <!-- Delete Button -->
                             <td style="vertical-align: middle;">
                                 <a class="action-link text-danger" @click="destroy(roadmap)">
-                                    Delete
+                                    删除
                                 </a>
                             </td>
                             <td>
-                                <a :href="allPipelines(roadmap)" class="action-link">Pipeline detail</a>
+                                <a :href="allPipelines(roadmap)" class="action-link">流程信息</a>
                             </td>
                         </tr>
                     </tbody>
@@ -62,14 +62,14 @@
                     <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                     <h4 class="modal-title">
-                            Create roadmap
+                            创建技术路线
                         </h4>
                 </div>
 
                 <div class="modal-body">
                     <!-- Form Errors -->
                     <div class="alert alert-danger" v-if="createForm.errors.length > 0">
-                        <p><strong>Whoops!</strong> Something went wrong!</p>
+                        <p><strong>糟糕！出问题了！</strong> 大多数是由于网络原因，请联系技术人员帮助解决！</p>
                         <br>
                         <ul>
                             <li v-for="error in createForm.errors">
@@ -83,7 +83,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="name" class="control-label">Name</label>
+                                    <label for="name" class="control-label">名称</label>
                                     <input type="text" id="name" v-model="createForm.name" class="form-control">
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="description" class="control-label">Description</label>
+                                    <label for="description" class="control-label">描述</label>
                                     <textarea id="description" v-model="createForm.description" class="form-control"></textarea>
                                 </div>
                             </div>
@@ -100,10 +100,10 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Step</th>
-                                        <th>Procedure</th>
-                                        <th>Protocol</th>
-                                        <th>Time</th>
+                                        <th>步骤</th>
+                                        <th>流程</th>
+                                        <th>方法</th>
+                                        <th>工时</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,7 +137,7 @@
                                 <tfoot>
                                     <tr>
                                         <td colspan="4">
-                                            <button role="button" class="btn btn-icon waves-effect btn-default m-b-5" @click.prevent="addCreateLine"><i class="mdi mdi-plus"></i> Add new Line</button>
+                                            <button role="button" class="btn btn-icon waves-effect btn-default m-b-5" @click.prevent="addCreateLine"><i class="mdi mdi-plus"></i>添加新步骤</button>
                                         </td>
                                     </tr>
 
@@ -153,10 +153,10 @@
 
                 <!-- Modal Actions -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
                     <button type="button" class="btn btn-primary" @click="store">
-                            Create
+                            创建
                     </button>
                 </div>
             </div>
@@ -169,14 +169,14 @@
                     <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                     <h4 class="modal-title">
-                            Edit roadmap
+                           修改技术路线信息
                         </h4>
                 </div>
 
                 <div class="modal-body">
                     <!-- Form Errors -->
                     <div class="alert alert-danger" v-if="editForm.errors.length > 0">
-                        <p><strong>Whoops!</strong> Something went wrong!</p>
+                        <p><strong>糟糕！出问题了！</strong> 大多数是由于网络原因，请联系技术人员帮助解决！</p>
                         <br>
                         <ul>
                             <li v-for="error in editForm.errors">
@@ -190,7 +190,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="name" class="control-label">Name</label>
+                                    <label for="name" class="control-label">名称</label>
                                     <input type="text" id="name" v-model="editForm.name" class="form-control">
                                 </div>
                             </div>
@@ -198,7 +198,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="description" class="control-label">Description</label>
+                                    <label for="description" class="control-label">描述</label>
                                     <textarea id="description" v-model="editForm.description" class="form-control"></textarea>
                                 </div>
                             </div>
@@ -207,10 +207,10 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Step</th>
-                                        <th>Procedure</th>
-                                        <th>Protocol</th>
-                                        <th>Time</th>
+                                        <th>步骤</th>
+                                        <th>流程</th>
+                                        <th>方法</th>
+                                        <th>工时</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -245,7 +245,7 @@
                                 <tfoot>
                                     <tr>
                                         <td colspan="4">
-                                            <button role="button" class="btn btn-icon waves-effect btn-default m-b-5" @click.prevent="addEditLine(editForm)"><i class="mdi mdi-plus"></i> Add new Line</button>
+                                            <button role="button" class="btn btn-icon waves-effect btn-default m-b-5" @click.prevent="addEditLine(editForm)"><i class="mdi mdi-plus"></i> 添加新步骤</button>
                                         </td>
                                     </tr>
 
@@ -260,10 +260,10 @@
 
                 <!-- Modal Actions -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
                     <button type="button" class="btn btn-primary" @click="update">
-                            Update
+                            更新
                     </button>
                 </div>
             </div>

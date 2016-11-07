@@ -153,9 +153,9 @@
                 </li> -->
                 <li><a href="{{ route('batches.index') }}"><i class="mdi mdi-layers"></i>Batches</a></li>
                 <li><a href="{{ route('projects.index') }}"><i class="mdi mdi-layers"></i>Project</a></li>
-                {{-- <li><a href="{{ route('roadmaps.index') }}"><i class="mdi mdi-layers"></i>Roadmap</a></li>
-                <li><a href="{{ route('experiments.index') }}"><i class="mdi mdi-layers"></i>Experiment</a></li>
-                <li><a href="{{ route('reports.index') }}"><i class="mdi mdi-layers"></i>Report</a></li> --}}
+                <li><a href="{{ route('roadmaps.index') }}"><i class="mdi mdi-layers"></i>Roadmap</a></li>
+                <li><a href="{{ route('procedures.index') }}"><i class="mdi mdi-layers"></i>Procedure</a></li>
+                <li><a href="{{ route('results.index') }}"><i class="mdi mdi-layers"></i>Results</a></li>
             </ul>
 
             <!-- End navigation menu -->

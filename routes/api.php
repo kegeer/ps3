@@ -18,15 +18,22 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::group(['namespace' => 'Api'], function() {
-    Route::get('/batches', 'BatchController@index');
-    Route::post('/batches', 'BatchController@store');
-    Route::put('/batches/{id}', 'BatchController@update');
-    Route::delete('/bacthes/{id}', 'BatchController@destroy');
 
-    Route::get('/batches/{id}/samples', 'BatchController@samples');
-    Route::post('/samples', 'SampleController@store');
-    Route::put('/samples/{id}', 'SampleController@update');
-    Route::delete('/samples/{id}', 'SampleController@destroy');
+    Route::group(['prefix' => 'batches'], function() {
+        Route::get('/', 'BatchController@index');
+        Route::post('/', 'BatchController@store');
+        Route::put('/{id}', 'BatchController@update');
+        Route::delete('/{id}', 'BatchController@destroy');
+        Route::get('/{id}/tasks', 'BatchController@tasks');
+         Route::get('/{id}/samples', 'BatchController@samples');
+    });
+    Route::group(['prefix' => 'samples'], function() {
+        Route::post('/', 'SampleController@store');
+        Route::put('/{id}', 'SampleController@update');
+        Route::delete('/{id}', 'SampleController@destroy');
+    });
+
+
 
     Route::group(['prefix' => 'projects'], function() {
     	Route::get('/', 'ProjectController@index');
@@ -41,5 +48,22 @@ Route::group(['namespace' => 'Api'], function() {
     	Route::post('/', 'TaskController@store');
     	Route::put('/{id}', 'TaskController@update');
     	Route::delete('/{id}', 'TaskController@destroy');
+    });
+
+    Route::group(['prefix' => 'roadmaps'], function() {
+        Route::get('/', 'RoadmapController@index');
+        Route::post('/', 'RoadmapController@store');
+        Route::put('/{id}', 'RoadmapController@update');
+        Route::delete('/{id}', 'RoadmapController@destroy');
+        Route::get('/{id}/tasks', 'RoadmapController@tasks');
+    });
+
+    Route::get('procedures', 'ProcedureController@index');
+    Route::post('procedures', 'ProcedureController@store');
+    Route::post('protocols', 'ProtocolController@store');
+
+    Route::group(['prefix' => 'results'], function(){
+        Route::get('/', 'ResultController@index');
+        Route::post('/', 'ResultController@store');
     });
 });

@@ -83,3 +83,23 @@ $factory->define(App\Task::class, function (Faker\Generator $faker) {
         'end'  => \Carbon\Carbon::now(),
     ];
 });
+
+
+
+$factory->define(App\Procedure::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => $faker->word
+    ];
+});
+
+
+
+$factory->define(App\Result::class, function (Faker\Generator $faker) {
+
+    return [
+        'sample_id' => $faker->numberBetween(1, 3),
+        'version'=> 1,
+        'result' => json_encode($faker->sentences(20))
+    ];
+});

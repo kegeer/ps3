@@ -18,6 +18,12 @@ Vue.component('batch-samples', require('./components/BatchSamples.vue'));
 
 Vue.component('projects', require('./components/Projects.vue'));
 Vue.component('project-tasks', require('./components/ProjectTasks.vue'));
+Vue.component('roadmaps', require('./components/Roadmaps.vue'));
+
+Vue.component('procedures', require('./components/Procedures.vue'));
+Vue.component('results', require('./components/Results.vue'));
+
+
 
 const app = new Vue({
     el: '#app'

@@ -23,27 +23,7 @@
 
     <body class="bg-transparent">
 
-
-        <!-- Navigation Bar-->
-        <header id="topnav">
-
-            @include('layouts.navbar')
-        </header>
-        <!-- End Navigation Bar-->
-
-
-        <div class="wrapper" id="app">
-            <div class="container">
-
-
-
-                @yield('content')
-
-                @include('layouts.footer')
-
-            </div>
-        </div>
-
+        @yield('content')
 
 
         @include('layouts.scripts')

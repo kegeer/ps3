@@ -18,8 +18,7 @@ class ProcedureController extends Controller
 	}
     public function store(Request $request)
     {
-        $procedure = Procedure::create($request->all());
-		dd($procedure);
+        $procedure = Procedure::create($request->only(['name']));
         return response()->json([
             'success' => true
         ]);

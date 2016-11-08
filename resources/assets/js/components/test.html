@@ -1,43 +1,56 @@
-<div role="application" class="wizard clearfix" id="steps-uid-0">
-    <div class="steps clearfix">
-        <ul role="tablist">
-            <li role="tab" class="first current" aria-disabled="false" aria-selected="true"><a id="steps-uid-0-t-0" href="#steps-uid-0-h-0" aria-controls="steps-uid-0-p-0"><span class="current-info audible">current step: </span><span class="number">1.</span> Account</a></li>
-            <li role="tab" class="disabled" aria-disabled="true"><a id="steps-uid-0-t-1" href="#steps-uid-0-h-1" aria-controls="steps-uid-0-p-1"><span class="number">2.</span> Profile</a></li>
-            <li role="tab" class="disabled" aria-disabled="true"><a id="steps-uid-0-t-2" href="#steps-uid-0-h-2" aria-controls="steps-uid-0-p-2"><span class="number">3.</span> Hints</a></li>
-            <li role="tab" class="disabled last" aria-disabled="true"><a id="steps-uid-0-t-3" href="#steps-uid-0-h-3" aria-controls="steps-uid-0-p-3"><span class="number">4.</span> Finish</a></li>
-        </ul>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="ori_num" class="control-label">原始样本编号</label>
+            <input type="text" id="ori_num" v-model="createForm.ori_num" class="form-control">
+        </div>
     </div>
-    <div class="content clearfix">
-        <h3 id="steps-uid-0-h-0" tabindex="-1" class="title current">Account</h3>
-        <section id="steps-uid-0-p-0" role="tabpanel" aria-labelledby="steps-uid-0-h-0" class="body current" aria-hidden="false">
-            <div class="form-group clearfix">
-                <label class="col-lg-2 control-label " for="userName">User name *</label>
-                <div class="col-lg-10">
-                    <input class="form-control required" id="userName" name="userName" type="text">
-                </div>
-            </div>
-            <div class="form-group clearfix">
-                <label class="col-lg-2 control-label " for="password"> Password *</label>
-                <div class="col-lg-10">
-                    <input id="password" name="password" type="text" class="required form-control">
-
-                </div>
-            </div>
-
-            <div class="form-group clearfix">
-                <label class="col-lg-2 control-label " for="confirm">Confirm Password *</label>
-                <div class="col-lg-10">
-                    <input id="confirm" name="confirm" type="text" class="required form-control">
-                </div>
-            </div>
-
-        </section>
-
-    <div class="actions clearfix">
-        <ul role="menu" aria-label="Pagination">
-            <li class="disabled" aria-disabled="true"><a href="#previous" role="menuitem">Previous</a></li>
-            <li aria-hidden="false" aria-disabled="false"><a href="#next" role="menuitem">Next</a></li>
-            <li aria-hidden="true" style="display: none;"><a href="#finish" role="menuitem">Finish</a></li>
-        </ul>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="py_num" class="control-label">谱元编号</label>
+            <input type="text" id="py_num" v-model="createForm.py_num" class="form-control">
+        </div>
     </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="client_id" class="control-label">客户</label>
+            <input type="text" id="client_id" v-model="createForm.client_id" class="form-control">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="amount" class="control-label">样品量</label>
+            <input type="text" id="amount" v-model="createForm.amount" class="form-control">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="split_type" class="control-label">分装类型</label>
+            <select v-model="createForm.split_type" id="split_type" class="form-control">
+                  <option value="1">poop</option>
+                  <option value="2">blood</option>
+                  <option value="3">Jack</option>
+                </select>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="sampling_time" class="control-label">样品类型</label>
+            <input type="date" id="sampling_time" v-model="createForm.sampling_time" class="form-control">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="split_time" class="control-label">分装时间</label>
+            <input type="date" id="split_time" v-model="createForm.split_time" class="form-control">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="due_time" class="control-label">截止日期</label>
+            <input type="date" id="due_time" v-model="createForm.due_time" class="form-control">
+        </div>
+    </div>
+
 </div>

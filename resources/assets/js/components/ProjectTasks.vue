@@ -82,13 +82,13 @@
                     <!-- Create Batch Form -->
                     <form role="form">
                         <div class="row">
-                        <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name" class="control-label">名称</label>
                                     <input type="text" id="name" v-model="createForm.name" class="form-control">
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="roadmap_id" class="control-label">技术路线</label>
@@ -150,7 +150,7 @@
                                     <tbody>
                                         <tr v-for="batch in batches">
                                             <td>
-                                                <input type="checkbox" v-model="">
+                                                <input type="checkbox">
                                             </td>
                                             <td>
                                                 {{ batch.ori_num }}
@@ -204,7 +204,7 @@
                     <!-- Edit Batch Form -->
                     <form role="form">
                         <div class="row">
-                        <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name" class="control-label">名称</label>
                                     <input type="text" id="name" v-model="editForm.name" class="form-control">
@@ -257,7 +257,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </form>
                 </div>
 

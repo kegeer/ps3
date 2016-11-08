@@ -45,7 +45,7 @@ class BatchController extends Controller
 
     public function samples($id)
     {
-        $samples = Sample::where('batch_id', $id)->get();
+        $samples = Sample::where('batch_id', $id)->with('client')->get();
         return response()->json([
             'data' => $samples
         ]);

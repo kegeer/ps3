@@ -12,24 +12,31 @@ class Sample extends Model
         'client_id' ,
         'ori_num',
         'py_num',
-        'amount',
-        'sampling_time',
-        'split_time',
-        'split_type',
-        'due_time'
+        'sample_weight',
+        'sample_date',
+        'test_date',
+        'is_reported',
+        'report_date'
     ];
 
-    public function getSamplingTimeAttribute($sampling_time)
+    public function getSampleTimeAttribute($sampling_time)
     {
         return Carbon::parse($sampling_time)->toDateString();
     }
-    public function getSplitTimeAttribute($split_time)
+
+    public function client()
     {
-        return Carbon::parse($split_time)->toDateString();
+        return $this->belongsTo('App\Client');
     }
-    public function getDueTimeAttribute($due_time)
+
+    public function getSourceAttribute()
     {
-        return Carbon::parse($due_time)->toDateString();
+        return $this->client->source;
+    }
+
+    public function getClientNameAttribute()
+    {
+        return $this->client->name;
     }
 
 }

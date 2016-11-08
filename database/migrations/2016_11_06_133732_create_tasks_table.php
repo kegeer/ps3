@@ -20,8 +20,8 @@ class CreateTasksTable extends Migration
             $table->integer('roadmap_id');
             $table->tinyInteger('exp_manager');
             $table->tinyInteger('info_manager');
-            $table->timestamp('start');
-            $table->timestamp('end');
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->timestamps();
         });
     }

@@ -1,11 +1,7 @@
 <!-- App css -->
+@stack('styles')
 <link href="/css/app.css" rel="stylesheet" type="text/css" />
-<link href="/css/core.css" rel="stylesheet" type="text/css" />
-<link href="/css/components.css" rel="stylesheet" type="text/css" />
-<link href="/css/icons.css" rel="stylesheet" type="text/css" />
-<link href="/css/pages.css" rel="stylesheet" type="text/css" />
-<link href="/css/menu.css" rel="stylesheet" type="text/css" />
-<link href="/css/responsive.css" rel="stylesheet" type="text/css" />
+<link href="/css/all.css" rel="stylesheet" type="text/css" />
 {{-- <link rel="stylesheet" href="/plugins/switchery/switchery.min.css"> --}}
 
 <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->

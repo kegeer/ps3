@@ -52,11 +52,8 @@ $factory->define(App\Sample::class, function (Faker\Generator $faker) {
         'client_id' => $faker->numberBetween(1, 20),
         'ori_num' => str_random(5),
         'py_num' => str_random(5),
-        'amount' => $faker->numberBetween(1, 3),
-        'sampling_time' => \Carbon\Carbon::now(),
-        'split_time' => \Carbon\Carbon::now(),
-        'split_type' => $faker->numberBetween(1, 3),
-        'due_time' => \Carbon\Carbon::now(),
+        'sample_weight' => $faker->numberBetween(1, 6),
+        'sample_date' => \Carbon\Carbon::now()
     ];
 });
 

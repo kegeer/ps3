@@ -82,6 +82,7 @@
 
                     <!-- Create Batch Form -->
                     <form role="form">
+                        <h4 class="header-title m-t-0 m-b-20">Primary Info</h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -97,13 +98,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="samples_amount" class="control-label">样本数量</label>
                                     <input type="text" id="samples_amount" v-model="createForm.samples_amount" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="samples_type" class="control-label">样品类型</label>
                                     <select v-model="createForm.samples_type" id="samples_type" class="form-control">
@@ -113,9 +114,37 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="recipients" class="control-label">样品接收人</label>
+                                    <input type="text" id="recipients" v-model="createForm.recipients" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="header-title m-t-0 m-b-20">Ship Info</h4>
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="sender" class="control-label">寄送方（人）</label>
+                                    <input type="text" id="sender" v-model="createForm.sender" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="send_time" class="control-label">寄送时间</label>
+                                    <input type="date" id="send_time" v-model="createForm.send_time" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="sender_contact" class="control-label">寄送联系方式</label>
+                                    <input type="text" id="sender_contact" v-model="createForm.sender_contact" class="form-control">
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="trans_method" class="control-label">运输方式</label>
                                     <select v-model="createForm.trans_method" id="trans_method" class="form-control">
@@ -125,49 +154,19 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="sender" class="control-label">寄送方（人）</label>
-                                    <input type="text" id="sender" v-model="createForm.sender" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="send_time" class="control-label">寄送时间</label>
-                                    <input type="date" id="send_time" v-model="createForm.send_time" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="sender_contact" class="control-label">寄送联系方式</label>
-                                    <input type="text" id="sender_contact" v-model="createForm.sender_contact" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="recipients" class="control-label">样品接收人</label>
-                                    <input type="text" id="recipients" v-model="createForm.recipients" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="arrive_time" class="control-label">到达时间</label>
-                                    <input type="date" id="arrive_time" v-model="createForm.arrive_time" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="express_num" class="control-label">快递单号</label>
                                     <input type="text" id="express_num" v-model="createForm.express_num" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="arrive_time" class="control-label">到达时间</label>
+                                    <input type="date" id="arrive_time" v-model="createForm.arrive_time" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="arrive_status" class="control-label">到样状态</label>
                                     <select v-model="createForm.arrive_status" id="arrive_status" class="form-control">
@@ -178,24 +177,10 @@
                                 </div>
                             </div>
                         </div>
+
+                        <h4 class="header-title m-t-0 m-b-20">Lab Info</h4>
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="store_method" class="control-label">实验室保存方法</label>
-                                    <select v-model="createForm.store_method" id="store_method" class="form-control">
-                                      <option value="1">Alice</option>
-                                      <option value="2">None</option>
-                                      <option value="3">Jack</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="store_location" class="control-label">保存位置</label>
-                                    <input type="text" id="store_location" v-model="createForm.store_location" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="manager" class="control-label">负责人</label>
                                     <select v-model="createForm.anager" id="manager" class="form-control">
@@ -205,6 +190,23 @@
                                         </select>
                                 </div>
                             </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="store_method" class="control-label">实验室保存方法</label>
+                                    <select v-model="createForm.store_method" id="store_method" class="form-control">
+                                      <option value="1">Alice</option>
+                                      <option value="2">None</option>
+                                      <option value="3">Jack</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="store_location" class="control-label">保存位置</label>
+                                    <input type="text" id="store_location" v-model="createForm.store_location" class="form-control">
+                                </div>
+                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -253,6 +255,7 @@
 
                     <!-- Create Batch Form -->
                     <form role="form">
+                        <h4 class="header-title m-t-0 m-b-20">Primary Info</h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -268,13 +271,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="samples_amount" class="control-label">样本数量</label>
                                     <input type="text" id="samples_amount" v-model="editForm.samples_amount" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="samples_type" class="control-label">样品类型</label>
                                     <select v-model="editForm.samples_type" id="samples_type" class="form-control">
@@ -284,9 +287,37 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="recipients" class="control-label">样品接收人</label>
+                                    <input type="text" id="recipients" v-model="editForm.recipients" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="header-title m-t-0 m-b-20">Ship Info</h4>
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="sender" class="control-label">寄送方（人）</label>
+                                    <input type="text" id="sender" v-model="editForm.sender" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="send_time" class="control-label">寄送时间</label>
+                                    <input type="date" id="send_time" v-model="editForm.send_time" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="sender_contact" class="control-label">寄送联系方式</label>
+                                    <input type="text" id="sender_contact" v-model="editForm.sender_contact" class="form-control">
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="trans_method" class="control-label">运输方式</label>
                                     <select v-model="editForm.trans_method" id="trans_method" class="form-control">
@@ -296,49 +327,19 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="sender" class="control-label">寄送方（人）</label>
-                                    <input type="text" id="sender" v-model="editForm.sender" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="send_time" class="control-label">寄送时间</label>
-                                    <input type="date" id="send_time" v-model="editForm.send_time" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="sender_contact" class="control-label">寄送联系方式</label>
-                                    <input type="text" id="sender_contact" v-model="editForm.sender_contact" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="recipients" class="control-label">样品接收人</label>
-                                    <input type="text" id="recipients" v-model="editForm.recipients" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="arrive_time" class="control-label">到达时间</label>
-                                    <input type="date" id="arrive_time" v-model="editForm.arrive_time" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="express_num" class="control-label">快递单号</label>
                                     <input type="text" id="express_num" v-model="editForm.express_num" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="arrive_time" class="control-label">到达时间</label>
+                                    <input type="date" id="arrive_time" v-model="editForm.arrive_time" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="arrive_status" class="control-label">到样状态</label>
                                     <select v-model="editForm.arrive_status" id="arrive_status" class="form-control">
@@ -349,24 +350,10 @@
                                 </div>
                             </div>
                         </div>
+
+                        <h4 class="header-title m-t-0 m-b-20">Lab Info</h4>
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="store_method" class="control-label">实验室保存方法</label>
-                                    <select v-model="editForm.store_method" id="store_method" class="form-control">
-                                      <option value="1">Alice</option>
-                                      <option value="2">None</option>
-                                      <option value="3">Jack</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="store_location" class="control-label">保存位置</label>
-                                    <input type="text" id="store_location" v-model="editForm.store_location" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="manager" class="control-label">负责人</label>
                                     <select v-model="editForm.anager" id="manager" class="form-control">
@@ -376,6 +363,23 @@
                                         </select>
                                 </div>
                             </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="store_method" class="control-label">实验室保存方法</label>
+                                    <select v-model="editForm.store_method" id="store_method" class="form-control">
+                                      <option value="1">Alice</option>
+                                      <option value="2">None</option>
+                                      <option value="3">Jack</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="store_location" class="control-label">保存位置</label>
+                                    <input type="text" id="store_location" v-model="editForm.store_location" class="form-control">
+                                </div>
+                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-md-12">

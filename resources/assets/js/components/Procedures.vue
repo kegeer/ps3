@@ -29,7 +29,7 @@
 		            </div>
 		        </div>
 	        	</div>
-		        
+
 		    </div>
 		    <div class="modal fade" id="modal-create-procedure" tabindex="-1" role="dialog">
 		        <div class="modal-dialog">
@@ -81,7 +81,7 @@
 		        </div>
 		    </div>
 		    <div class="modal fade" id="modal-create-protocol" tabindex="-1" role="dialog">
-		        <div class="modal-dialog">
+		        <div class="modal-dialog" style="width:60%">
 		            <div class="modal-content">
 		                <div class="modal-header">
 		                    <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -165,7 +165,6 @@
 </template>
 
 <script>
-
 import procedureSamples from './ProcedureSamples.vue';
 export default {
     data() {
@@ -188,6 +187,7 @@ export default {
     },
     components: {
         'procedure-samples': procedureSamples
+
     },
     mounted() {
         this.prepareComponent();
@@ -216,6 +216,16 @@ export default {
         },
         showCreateProtocolForm() {
             $('#modal-create-protocol').modal('show');
+			// $('#content').summernote({
+			// 	height: 420,
+			// 	minHeight: 250,
+			// 	htmlMode: true,
+			// 	callbacks: {
+			// 	    onChange: function(contents, $editable) {
+			// 	      this.createProtocolForm.content = content;
+			// 	    }
+			//   	}
+			// });
         },
         getProcedures() {
             this.$http.get('/api/procedures')
@@ -232,9 +242,9 @@ export default {
             })
             .catch(response => {
                 if (typeof response.data === 'object') {
-                    form.errors = _.flatten(_.toArray(response.data));
+                    this.createForm.errors = _.flatten(_.toArray(response.data));
                 } else {
-                    form.errors = ['Something went wrong, please try again']
+                    this.createForm.errors = ['Something went wrong, please try again']
                 }
             })
         },
@@ -249,9 +259,9 @@ export default {
             })
             .catch(response => {
                 if (typeof response.data === 'object') {
-                    form.errors = _.flatten(_.toArray(response.data));
+                    this.createProtocolForm.errors = _.flatten(_.toArray(response.data));
                 } else {
-                    form.errors = ['Something went wrong, please try again']
+                    this.createProtocolForm.errors = ['Something went wrong, please try again']
                 }
             })
         }

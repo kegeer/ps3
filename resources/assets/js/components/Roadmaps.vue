@@ -44,9 +44,6 @@
                                     删除
                                 </a>
                             </td>
-                            <td>
-                                <a :href="allPipelines(roadmap)" class="action-link">流程信息</a>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -308,9 +305,6 @@ export default {
         this.prepareComponent();
     },
     methods: {
-        allPipelines(roadmap) {
-            return "/roadmaps/" + roadmap.id + "/pipelines";
-        },
         prepareComponent() {
             this.getRoadmaps();
             $('#modal-create-roadmap').on('shown.bs.modal', () => {
